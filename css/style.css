@@ -1,0 +1,130 @@
+body{
+	font-family: sans-serif;
+	margin:0;
+}
+.container-fluid{
+	width:100%;
+	margin:0 auto;
+	/*background-color: #ddd;*/
+/*	display: flex; */ /*用flex排版好处均匀分布*/
+/*	flex-wrap: wrap;*//*可以保持原本尺寸，不够的自动换行*/
+	/*justify-content: center;*/ /*元素居中*/
+	/*justify-content: space-between;*/
+	/*分散对齐，元素中间加空隙,并且两端元素靠边对齐*/
+	/*align-items: flex-start;*/
+}
+.navbar{
+	border-radius: 0;
+	z-index: 1000;/*为了将nav-bar排列顺序至上,设置1000*/
+}
+.navbar-default{
+	position: fixed;
+	width:100%;
+	/*background-color: #283146;*/
+	transition: all .3s;
+}
+.banner{
+	height: 200px;
+	background-image: url(../IMG/banner.jpg);
+	background-size: cover;
+	background-position: center;
+	padding: 0;
+}
+.container{
+	width: 100%;
+	height: 1400px;
+	background: #ddd;
+	margin-top:20px;
+}
+.content{
+	background-color: #999;
+}
+.item{
+	width: 200px;
+	height: 130px;
+	background-size: cover;
+	background-position: center;
+	margin: 12px;
+	box-sizing: border-box;
+	position: relative;
+	float: left;
+}
+.select-btn-group{
+	display: flex;
+	justify-content: center;
+	margin-top: 20px;
+}
+.select-btn-group>.btn-select{
+	padding: 10px 24px;
+	margin-left: 6px;
+	margin-right: 6px;
+	border:1px solid #ddd;
+	border-radius: 24px;
+}
+.select-btn-group>.btn-select:hover{
+	background-color: #5f00f0;
+	color: white;
+	border:1px solid #5f00f0;
+	transition: all 0.3s;
+}
+.select-btn-group>.btn-select.active{
+	background-color: #5f00f0;
+	color: white;
+	border:1px solid #5f00f0;
+}
+
+@keyframes mymove{
+	0%{left:0px;}
+	50%{left:200px;}
+	100%{left:0px;}
+	/*因为content的位置设置为relative,所以直接left就行，如果没有设置，要用margin left*/
+}
+@keyframes myrotate{
+	0%{transform:rotate(0deg); left:0px;background: red;width: 180px;}
+	50%{transform:rotate(360deg); left:200px;background: yellow;width: 240px;}
+	100%{transform:rotate(0deg); left:0px;background: red;width: 180px;}
+	/*因为content的位置设置为relative,所以直接left就行，如果没有设置，要用margin left*/
+}
+/*.c-1{
+	animation: mymove 2s 3;
+}*/
+/*刷新页面就加载动画，无需点击,动画持续2s,并循环3次,也可以循环无限次infinite*/
+/*.c-2{
+	animation: myrotate 2s 3;
+}*/
+.animate-move{
+	animation: mymove 2s 3;
+}
+.animate-rotate{
+	animation: myrotate 2s 3;
+}
+.navbar-hide-top{
+	transform: translateY(-50px);
+	transition: all .3s;
+}
+.to-top{
+	width: 50px;
+	height: 50px;
+	background-color: white;
+	border-radius: 50%;
+	box-shadow:0 0 12px rgba(0,0,0,0.3);
+	position: fixed;
+	right: 12px;
+	bottom: 60px;
+	text-align: center;
+	line-height: 50px;
+}
+@media only screen and (max-width: 600px){ /*浏览器宽度在600px以下时，*/
+	.item{
+		width:100%!important;/*图片100%显示宽度,覆盖index里面的style*/
+	}
+	.container{
+		background: #283146;	
+	}
+}
+@media only screen and (min-width: 601px)and(max-width: 600px){ /*浏览器宽度在600px以下时，*/
+	.item{
+		width:70%!important;/*图片100%显示宽度,覆盖index里面的style*/
+	}
+}
+
