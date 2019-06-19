@@ -595,4 +595,107 @@
     // 滚动到200px后banner隐藏，to-top出现
   });
 </script>
+=======
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Cathy 打卡25</title>
+	<meta charset=”utf-8”/>
+	 <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0,user-scalable=no">
+    <!-- 用户自适应设备宽度 -->
+    <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+</head>
+<body>
+  <div class="container-fluid banner">
+	<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">Brand</a>
+    </div>
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#">首页</a></li>
+        <li><a href="#">作品集</a></li>
+        <li><a href="#">关于我</a></li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+<div class="banner"></div>
+</div>
+<div class="select-btn-group">
+	<div class="btn-select active" id="all-tag">all</div>
+	<div class="btn-select" id="ux-tag">UX</div>
+	<div class="btn-select" id="ui-tag">UI</div>
+	<div class="btn-select" id="front-tag">Front-end</div>
+	<div class="btn-select" id="animate-tag">Animation</div>
+</div>
+<div class="container">
+	<div class="item ux" style="background-image: url(IMG/ux1.jpg);"></div>
+	<div class="item ui" style="background-image: url(IMG/ui1.jpg);"></div>
+	<div class="item" id="front" style="background-image: url(IMG/front.jpg);"></div>
+	<div class="item animate" style="background-image: url(IMG/animate1.jpg);"></div>
+	<div class="item ux" style="background-image: url(IMG/ux2.jpg);"></div>
+	<div class="item ux" style="background-image: url(IMG/ux3.jpg);"></div>
+	<div class="item ux" style="background-image: url(IMG/ux4.jpg);"></div>
+	<div class="item ui" style="background-image: url(IMG/ui2.jpg);"></div>
+	<div class="item" id="front" style="background-image: url(IMG/front.jpg);"></div>
+	<div class="item animate" style="background-image: url(IMG/animate2.jpg);"></div>
+	<div class="item ux" style="background-image: url(IMG/ux5.jpg);"></div>
+</div>
+<div class="to-top">top</div>
+</body>
+<script type="text/javascript">
+  $(document).ready(function()
+  // 基本元素loading结束后让jQuery生效
+  {
+    $(".btn-select").click(function(){
+    	$(this).addClass("active");
+    	$(this).siblings().removeClass("active");
+    	// 点击#-tag就为btn-select添加一个activeClass,并移除带有active的其他同级tag
+    });
+    $("#all-tag").click(function(){
+    	$(".item").fadeIn(200);// 设置200ms加载完
+    });
+    $("#ux-tag").click(function(){
+    	$(".item").fadeOut(200);
+    	$(".ux").fadeIn(200);
+    });
+    $("#ui-tag").click(function(){
+    	$(".item").fadeOut(200);
+    	$(".ui").fadeIn(200);
+    });
+    $("#front-tag").click(function(){
+    	$(".item").fadeOut(200);
+    	$("#front").fadeIn(200);
+    });
+    $("#animate-tag").click(function(){
+    	$(".item").fadeOut(200);
+    	$(".animate").fadeIn(200);
+    });
+    $(".to-top").fadeOut();
+    $(window).scroll(function(){
+      if($(window).scrollTop()>200){
+        $(".to-top").fadeIn();
+        $(".navbar-default").addClass("navbar-hide-top")
+      }else{
+        $(".to-top").fadeOut();
+        $(".navbar-default").removeClass("navbar-hide-top")
+      }
+    });
+    // 滚动到200px后banner隐藏，to-top出现
+  });
+</script>
+</body>
 </html>
